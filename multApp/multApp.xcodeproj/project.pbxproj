@@ -14,6 +14,7 @@
 		44F3A01526F6075200DCE4A7 /* multApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44F3A01326F6075200DCE4A7 /* multApp.xcdatamodeld */; };
 		44F3A01726F6075300DCE4A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F3A01626F6075300DCE4A7 /* Assets.xcassets */; };
 		44F3A01A26F6075300DCE4A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F3A01826F6075300DCE4A7 /* LaunchScreen.storyboard */; };
+		44F3A02226F6105E00DCE4A7 /* CellForTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3A02126F6105E00DCE4A7 /* CellForTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		44F3A01626F6075300DCE4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F3A01926F6075300DCE4A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44F3A01B26F6075300DCE4A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44F3A02126F6105E00DCE4A7 /* CellForTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				44F3A00A26F6075200DCE4A7 /* AppDelegate.swift */,
 				44F3A00C26F6075200DCE4A7 /* SceneDelegate.swift */,
+				44F3A02126F6105E00DCE4A7 /* CellForTable.swift */,
 				44F3A00E26F6075200DCE4A7 /* ViewController.swift */,
 				44F3A01026F6075200DCE4A7 /* Main.storyboard */,
 				44F3A01626F6075300DCE4A7 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			files = (
 				44F3A00F26F6075200DCE4A7 /* ViewController.swift in Sources */,
 				44F3A00B26F6075200DCE4A7 /* AppDelegate.swift in Sources */,
+				44F3A02226F6105E00DCE4A7 /* CellForTable.swift in Sources */,
 				44F3A00D26F6075200DCE4A7 /* SceneDelegate.swift in Sources */,
 				44F3A01526F6075200DCE4A7 /* multApp.xcdatamodeld in Sources */,
 			);
