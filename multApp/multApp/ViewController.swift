@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
-    var data2 = ["2" : ["2^1 = 2", "2^2 = 4", "2^3 = 8"]]
-    var data3 = ["3" : ["3^1 = 3", "3^2 = 9", "3^3 = 27"], "2" : ["2^1 = 2", "2^2 = 4", "2^3 = 8"]]
+    var data = ["2" : ["2^1 = 2", "2^2 = 4", "2^3 = 8"], "3" : ["3^1 = 3", "3^2 = 9", "3^3 = 27"]]
+    var textInTexField: String?
+    var textField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +20,9 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(CellForTable.self, forCellReuseIdentifier: "cell")
         
-        let a = data3["3"]
-        print(a![0])
     }
-
-
+    
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -38,20 +37,42 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CellForTable
-        cell.backgroundColor = .blue
-      //  cell.label.text = "Section: \(indexPath.section) Row: \(indexPath.row)"
-        
         if indexPath.section == 0 {
-            cell.label.text = "Hello 0"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CellForTable
+            cell.selectionStyle = .none
+            
+            textField = UITextField(frame: CGRect(x: 20, y: 5, width: 200, height: 30))
+            textField!.delegate = self
+            cell.contentView.addSubview(textField!)
+            textField?.text = ""
+            textField!.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+            return cell
         } else {
-            let a = data3["3"]
-            print(a![indexPath.row])
-            cell.label.text = a![indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CellForTable
+            cell.selectionStyle = .none
+            var label: UILabel = {
+                let label = UILabel(frame: CGRect(x: 20, y: 5, width: 200, height: 30))
+                label.textColor = .black
+                return label
+            }()
+            cell.addSubview(label)
+            
+            switch textInTexField {
+            case "2": label.text = data["2"]![indexPath.row]
+            case "3": label.text = data["3"]![indexPath.row]
+            default: label.text = " "
+            }
+            
+            return cell
         }
         
-        return cell
     }
+    
+    @objc func textFieldDidChange() {
+        textInTexField = textField?.text
+        tableView.reloadData()
+    }
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -63,7 +84,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         view.addSubview(label)
         
         return view
-
+        
     }
     
 }
